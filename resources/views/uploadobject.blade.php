@@ -88,10 +88,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="descr" class="col-md-4 col-form-label text-md-right">{{ __('description') }}</label>
+                            <label for="descr" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="descr" type="text" class="form-control{{ $errors->has('descr') ? ' is-invalid' : '' }}" name="descr" value="{{ old('descr') }}" required autofocus/>
+                                <textarea id="descr" class="form-control{{ $errors->has('descr') ? ' is-invalid' : '' }}" name="descr" value="{{ old('descr') }}" required autofocus/>
 
                                 @if ($errors->has('descr'))
                                     <span class="invalid-feedback" role="alert">
@@ -109,33 +109,6 @@
                             </div>
                         </div>
 
-                        <!-- <p style="font-size:5vh;" align="center">3D Object</p>
-                        <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class="form-group col-md-4">
-                            <input id= "object3d" type="file" name="object3d">    
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="col-md-4"></div>
-                    
-                        </div> -->
-
-                        <!-- <p style="font-size:5vh;" align="center">2D Image</p>
-
-                        <div class="row">
-                            <div class="col-md-4"></div>
-                            <div class="form-group col-md-4">
-                                <input id= "object2d" type="file" name="object2d">    
-                            </div>
-                            </div>
-                            <div class="row">
-                            <div class="col-md-4"></div> -->
-<!--                         
-                            <div class="form-group col-md-4">
-                                <button type="submit" class="btn btn-success">Upload</button>
-                            </div> -->
-                            <!-- </div> -->
                     </form>
                 </div>
             </div>
