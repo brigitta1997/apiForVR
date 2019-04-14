@@ -87,6 +87,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="descr" class="col-md-4 col-form-label text-md-right">{{ __('description') }}</label>
+
+                            <div class="col-md-6">
+                                <textarea id="descr" type="text" class="form-control{{ $errors->has('descr') ? ' is-invalid' : '' }}" name="descr" value="{{ old('descr') }}" required autofocus>
+
+                                @if ($errors->has('descr'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('descr') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                          <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

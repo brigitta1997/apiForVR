@@ -25,7 +25,8 @@ class VrObjectController extends Controller
         $attributes = $this->validate($request, [
             'name' => 'required | min:3',
             'price' => 'required',
-            'type' => 'required'
+            'type' => 'required',
+            'descr' => 'required'
             ]);
 
         $filepath3d = $this->object3dUpload($request);

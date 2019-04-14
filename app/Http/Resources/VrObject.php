@@ -22,6 +22,9 @@ class VrObject extends JsonResource
             'company' => $this->company,
             'type' => $this->type,
             'obj2dl' => $this->obj2dl,
+            'obj3dl' => $this->obj3dl,
+            'descr' => $this->descr,
+
 
         ];
     }

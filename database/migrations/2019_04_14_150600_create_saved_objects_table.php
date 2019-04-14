@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVrObjectsTable extends Migration
+class CreateSavedObjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreateVrObjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('vr_objects', function (Blueprint $table) {
+        Schema::create('saved_objects', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->unsignedDecimal('price');
-            $table->string('type');
-            $table->string('company');
-            $table->string('obj3dl');
-            $table->string('obj2dl');
-            $table->string('descr');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('obj_id');
             $table->timestamps();
+            $table->foreign('obj_id')->references('id')->on('vr_objects');
         });
     }
 
@@ -33,6 +29,6 @@ class CreateVrObjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vr_objects');
+        Schema::dropIfExists('saved_objects');
     }
 }
