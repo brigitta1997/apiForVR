@@ -21,7 +21,7 @@ class CreateVrObjectsTable extends Migration
             $table->string('company');
             $table->string('obj3dl');
             $table->string('obj2dl');
-            $table->string('descr');
+            $table->text('descr');
             $table->timestamps();
         });
     }
