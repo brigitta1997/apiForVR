@@ -41,7 +41,8 @@ class VrObjectController extends Controller
             'type' => request('type'),
             'company' =>  $companyName,
             'obj3dl' => $linkHead.$filepath3d,
-            'obj2dl' => $linkHead.$filepath2d
+            'obj2dl' => $linkHead.$filepath2d,
+            'descr' => request('descr')
         ]);
      
         return back()->with('success','Uploaded successfully');
@@ -87,6 +88,12 @@ class VrObjectController extends Controller
     public function view($id){
         $vrobj = VrObject::findOrFail($id);
         return new VrObjectResource($vrobj);
+    }
+
+    //temporary
+    public function delete($id){
+        $vrobj = VrObject::findOrFail($id)->delete();
+        return view('/');
     }
 
     
