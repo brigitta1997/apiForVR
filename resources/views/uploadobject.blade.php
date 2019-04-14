@@ -91,7 +91,7 @@
                             <label for="descr" class="col-md-4 col-form-label text-md-right">{{ __('description') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="descr" type="text" class="form-control{{ $errors->has('descr') ? ' is-invalid' : '' }}" name="descr" value="{{ old('descr') }}" required autofocus>
+                                <textarea id="descr" type="text" class="form-control{{ $errors->has('descr') ? ' is-invalid' : '' }}" name="descr" value="{{ old('descr') }}" required autofocus/>
 
                                 @if ($errors->has('descr'))
                                     <span class="invalid-feedback" role="alert">
