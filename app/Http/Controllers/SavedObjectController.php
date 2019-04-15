@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\SavedObject;
 use App\VrObject;
+use App\Http\Resources\VrObject as VrObjectResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,7 @@ class SavedObjectController extends Controller
     				->from("saved_objects")
     				->where("user_id",$userId);
     	})->get();
-    	return $so;
+    	return VrObjectResource::collection($so);
 
     }
 
