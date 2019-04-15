@@ -22,3 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::get('/search/furni/{word}','SearchController@showByFurniture');
 Route::get('/furni/{id}','VrObjectController@view');
 Route::post('/search', 'SearchController@filter');
+Route::get('/savedObj/{id}','SavedObjectController@showSavedObj');
+Route::post('/savedObj/save', 'SavedObjectController@savedObj');
+Route::post('/userCred','UserController@autheniticateUserAPI');

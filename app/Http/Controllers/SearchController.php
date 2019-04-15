@@ -34,7 +34,5 @@ class SearchController extends Controller
     
    }
 
-   public function show_desc($obj_id){
-        
-   }
+
 }
