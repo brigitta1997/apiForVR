@@ -18,7 +18,6 @@ class CreateSavedObjectsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('obj_id');
             $table->timestamps();
-            $table->foreign('obj_id')->references('id')->on('vr_objects');
         });
     }
 
