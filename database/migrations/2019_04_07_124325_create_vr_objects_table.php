@@ -22,6 +22,7 @@ class CreateVrObjectsTable extends Migration
             $table->string('obj3dl');
             $table->string('obj2dl');
             $table->text('descr');
+            $table->string('sfbLink')->nullable();
             $table->timestamps();
         });
     }

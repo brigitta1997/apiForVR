@@ -24,4 +24,6 @@ Route::post('/createimage','ImageController@imageUpload');
 
 Route::get('/createobject','VrObjectController@create');
 Route::post('/createobject','VrObjectController@objectUpload');
+Route::get('/createSFB','VrObjectController@createSfb');
+Route::post('/createSFB','VrObjectController@sfbUpload');
 

@@ -25,3 +25,4 @@ Route::post('/search', 'SearchController@filter');
 Route::get('/savedObj/{id}','SavedObjectController@showSavedObj');
 Route::post('/savedObj/save', 'SavedObjectController@savedObj');
 Route::post('/userCred','UserController@autheniticateUserAPI');
+Route::get('/sfb/{id}','VrObjectController@getSfbLink');

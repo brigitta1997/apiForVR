@@ -96,6 +96,46 @@ class VrObjectController extends Controller
         return view('/');
     }
 
+    public function createSfb(){
+        return view('uploadsfb');
+    }
+
+    public function sfbUpload(Request $request){
+        $linkHead = "https://s3-ap-southeast-1.amazonaws.com/fypprojectstoragevr/";
+        // $this->validate($request, [
+        //     'sfbFile' => 'required|mimetypes:text/plain',
+        //     'objId' => 'required'
+        //     ]);
+        $sfbPath = $this->uploadsfbtos3($request);
+        $obj = VrObject::find(request('objId'));
+        $obj->sfbLink = $linkHead.$sfbPath;
+        $obj->save();
+
+        return back()->with('success','Uploaded sfb successfully');
+      
+    }
+
+    public function uploadsfbtos3(Request $request){
+        if($request->hasfile('sfbFile'))
+        {
+           $file = $request->file('sfbFile');
+           $name=time().$file->getClientOriginalName();
+           $filePath = 'sfb/' . $name;   
+           Storage::disk('s3')->put($filePath, file_get_contents($file));   
+          
+           return $filePath;
+        }
+    }
+
+    public function getSfbLink($userId){
+        $so = VrObject::whereIn("id", function($query) use ($userId){
+    		$query->select("obj_id")
+    				->from("saved_objects")
+    				->where("user_id",$userId);
+    	})->get();
+    	return VrObjectResource::collection($so);
+    }
+
     
 
 }

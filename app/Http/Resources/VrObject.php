@@ -24,6 +24,7 @@ class VrObject extends JsonResource
             'obj2dl' => $this->obj2dl,
             'obj3dl' => $this->obj3dl,
             'descr' => $this->descr,
+            'sfbLink' => $this->sfbLink,
 
 
         ];
