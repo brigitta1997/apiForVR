@@ -1,0 +1,15 @@
+img{
+	/*width:15vw;*/
+	max-height: 100px;
+	max-width:100px;
+	margin: auto;
+}
+.obj{
+	display:grid;
+	border-style: solid;
+	height: 100px;
+	width:100px;
+}
+.add_img{
+	width:40px;
+}
