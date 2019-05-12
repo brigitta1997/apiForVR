@@ -129,11 +129,33 @@ class VrObjectController extends Controller
 
     public function getSfbLink($userId){
         $so = VrObject::whereIn("id", function($query) use ($userId){
-    		$query->select("obj_id")
-    				->from("saved_objects")
-    				->where("user_id",$userId);
-    	})->get();
-    	return VrObjectResource::collection($so);
+            $query->select("obj_id")
+                    ->from("saved_objects")
+                    ->where("user_id",$userId);
+        })->get();
+        return VrObjectResource::collection($so);
+    }
+
+    public function getFurniByType($type){
+        $vro = VrObject::where('type','like','%'.$type.'%')->get();
+        return VrObjectResource::collection($vro);
+    }
+
+    public function viewCollection(){
+        $user = User::findOrFail(auth()->id());
+        $company = $user->company;
+        $vro = VrObject::select('id','obj2dl')->where('company','like','%'.$company.'%')->get();
+        return view('objectCollection',
+            [
+                'objs'=> $vro
+            ]);
+    }
+
+    public function addSlider($id){
+        $vro = VrObject::find($id);
+        return view('objectAddSlider',[
+               'vro' => $vro 
+        ]);
     }
 
     

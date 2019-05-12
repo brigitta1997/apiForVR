@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\VrObject;
+use App\Http\Resources\Company as CompanyResource;
+use App\Http\Resources\VrObject as VrObjectResource;
 use Illuminate\Http\Request;
 
 class CompaniesController extends Controller
@@ -82,4 +85,16 @@ class CompaniesController extends Controller
     {
         //
     }
+
+    public function getAllLogo()
+    {
+        $companies = Company::all();
+        return CompanyResource::collection($companies);
+    }
+
+    public function getItemFromCompany($name){
+        $vro = VrObject::where('company','like','%'.$name.'%')->get();
+        return VrObjectResource::collection($vro);
+    }
 }
+
