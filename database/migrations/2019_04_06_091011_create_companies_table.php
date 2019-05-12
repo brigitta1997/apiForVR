@@ -19,6 +19,8 @@ class CreateCompaniesTable extends Migration
             $table->string('name');
             $table->string('contactNum');
             $table->string('address');
+            $table->string('logo')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });
