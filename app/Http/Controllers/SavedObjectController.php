@@ -38,9 +38,9 @@ class SavedObjectController extends Controller
     public function is_saved($user_id, $obj_id){
         $so = SavedObject::where('user_id','=',$user_id)->where('obj_id','=',$obj_id)->first();
         if($so == null){
-            return response()->json(['message' => 'not'], 201);
+            return response()->json(['message' => "0"], 201);
         }else{
-            return response()->json(['message' => 'exist'], 201);
+            return response()->json(['message' => "1"], 201);
         }
     }
 }
